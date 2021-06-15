@@ -41,6 +41,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}
 
 RUN conda create -y --name py$PYTHON_VERSION \
         python=$PYTHON_VERSION \
+        boto3 \
         numpy \
         pyyaml \
         scipy \
