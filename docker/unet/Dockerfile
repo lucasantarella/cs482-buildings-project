@@ -42,4 +42,11 @@ ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 RUN pip install GDAL
 
+# Clone UNet
+RUN apt-get -y update && apt-get -y install curl unzip
+RUN curl -Lo /tmp/unet.zip https://github.com/reachsumit/deep-unet-for-satellite-image-segmentation/archive/refs/heads/master.zip && \
+    unzip /tmp/unet.zip -d /tmp && \
+    mv /tmp/deep-unet-for-satellite-image-segmentation-master /usr/lib/unet && \
+    rm /tmp/unet.zip
+
 WORKDIR /workspace

@@ -25,6 +25,9 @@ RUN apt-get update --yes && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
 
+# for jupyter
+RUN pip install jupyter notebook jupyterhub jupyterlab
+
 ENV HOME="/home/${NB_USER}"
 
 # Copy a script that we will use to correct permissions after running certain commands
@@ -52,10 +55,9 @@ ARG PYTHON_VERSION=default
 
 # Setup work directory for backward-compatibility
 RUN mkdir "/home/${NB_USER}/work" && \
-    fix-permissions "/home/${NB_USER}"
-
-# for jupyter
-RUN pip install jupyter notebook jupyterhub jupyterlab
+    mkdir "/home/${NB_USER}/.jupyter" && \
+    fix-permissions "/home/${NB_USER}" && \
+    fix-permissions "/home/${NB_USER}/.jupyter"
 
 EXPOSE 8888
 
