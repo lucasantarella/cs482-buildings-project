@@ -24,7 +24,22 @@ RUN pip install unet
 # for gpu
 RUN pip install tensorflow-gpu
 
-# for jupyter
-RUN pip install jupyter notebook
+# more deps
+RUN pip install matplotlib
+
+# install gdal
+RUN apt-get -y update && apt-get -y install \
+    apt-utils \
+    build-essential \
+    software-properties-common \
+    git
+RUN add-apt-repository -y ppa:ubuntugis/ppa && \
+    apt-get -y update && \
+    apt-get -y install gdal-bin python3-gdal
+
+# Update C env vars so compiler can find gdal
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
+RUN pip install GDAL
 
 WORKDIR /workspace
