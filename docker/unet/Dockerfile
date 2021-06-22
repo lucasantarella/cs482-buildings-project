@@ -35,7 +35,7 @@ RUN apt-get -y update && apt-get -y install \
     git
 RUN add-apt-repository -y ppa:ubuntugis/ppa && \
     apt-get -y update && \
-    apt-get -y install gdal-bin python3-gdal
+    apt-get -y install gdal-bin libgdal-dev
 
 # Update C env vars so compiler can find gdal
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
@@ -48,5 +48,11 @@ RUN curl -Lo /tmp/unet.zip https://github.com/reachsumit/deep-unet-for-satellite
     unzip /tmp/unet.zip -d /tmp && \
     mv /tmp/deep-unet-for-satellite-image-segmentation-master /usr/lib/unet && \
     rm /tmp/unet.zip
+
+# Add openvc
+RUN apt-get -y update && \
+    apt-get -y install ffmpeg libsm6 libxext6
+RUN pip install opencv-python cython
+
 
 WORKDIR /workspace
