@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  buildings:
+    build: .
+    container_name: buildings-container
+    volumes:
+      - /home/kavine24/workspaces/cs482-buildings-project:/home/joyvan #replace first part with the project folder.
+    working_dir: /home/joyvan
+    ports:
+      - 8888:8888
+    entrypoint: [jupyter, notebook]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
