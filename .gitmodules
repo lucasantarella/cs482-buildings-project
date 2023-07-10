@@ -1,3 +1,0 @@
-[submodule "deep-unet-for-satellite-image-segmentation"]
-	path = deep-unet-for-satellite-image-segmentation
-	url = https://github.com/reachsumit/deep-unet-for-satellite-image-segmentation
