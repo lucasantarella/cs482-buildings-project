@@ -2,7 +2,8 @@
 .keras/
 .local/
 .nv/
-data/
+data/train/
+data/test/
 notebooks/ipynb_checkpoints/
 notebooks/tensorboard_unet/
 notebooks/log_unet.csv
