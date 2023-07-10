@@ -1,0 +1,8 @@
+.ipython/
+.keras/
+.local/
+.nv/
+data/
+notebooks/ipynb_checkpoints/
+notebooks/tensorboard_unet/
+notebooks/log_unet.csv

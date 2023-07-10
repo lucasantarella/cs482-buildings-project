@@ -5,8 +5,8 @@ services:
     build: .
     container_name: buildings-container
     volumes:
-      - /home/kavine24/workspaces/cs482-buildings-project:/home/joyvan #replace first part with the project folder.
-    working_dir: /home/joyvan
+      - /home/kavine24/workspaces/cs482-buildings-project:/home/jovyan #replace first part with the project folder.
+    working_dir: /home/jovyan
     ports:
       - 8888:8888
     entrypoint: [jupyter, notebook]
