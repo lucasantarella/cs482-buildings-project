@@ -1,3 +1,4 @@
 [submodule "deep-unet-for-satellite-image-segmentation"]
 	path = deep-unet-for-satellite-image-segmentation
 	url = https://github.com/kavine24/deep-unet-for-satellite-image-segmentation.git
+	branch = master

@@ -8,7 +8,7 @@ from rasterio.features import rasterize
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import mapping, Point, Polygon
-from shapely.ops import cascaded_union
+from shapely.ops import unary_union
 
 import numpy as np
 import cv2
@@ -47,7 +47,7 @@ def generate_mask(raster_path, shape_path, output_path, file_name):
     def poly_from_utm(polygon):
         poly_pts = []
 
-        poly = cascaded_union(polygon)
+        poly = unary_union(polygon)
 
         for i in np.array(poly.exterior.coords):
             poly_pts.append(tuple(i))
@@ -63,7 +63,7 @@ def generate_mask(raster_path, shape_path, output_path, file_name):
             poly = poly_from_utm(row['geometry'])
             poly_shp.append(poly)
         else:
-            for p in row['geometry']:
+            for p in row['geometry'].geoms:
                 poly = poly_from_utm(p)
                 poly_shp.append(poly)
 

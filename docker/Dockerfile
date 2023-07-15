@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 
 RUN apt-get -y update && apt-get -y upgrade && apt-get -y install \
     apt-utils \
@@ -6,7 +6,7 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get -y install \
     python3-pip
 
 # Install deps
-RUN pip install torch torchvision torchaudio
+#RUN pip install torch torchvision torchaudio
 
 #for mask generation
 RUN pip install rasterio
@@ -15,7 +15,7 @@ RUN pip install geopandas
 # for unet
 RUN pip install tifffile
 RUN pip install keras
-RUN pip install unet
+#RUN pip install unet
 
 # for gpu
 RUN pip install tensorflow
@@ -70,5 +70,3 @@ RUN useradd -l -m -s /bin/bash -N -u "${NB_UID}" "${NB_USER}" && \
 
 
 USER ${NB_UID}
-
-

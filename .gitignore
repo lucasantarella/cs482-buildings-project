@@ -2,8 +2,12 @@
 .keras/
 .local/
 .nv/
+.cache/
+.jupyter
 data/train/
 data/test/
+output/map.tif
+output/result.tif
 notebooks/ipynb_checkpoints/
 notebooks/tensorboard_unet/
 notebooks/log_unet.csv
