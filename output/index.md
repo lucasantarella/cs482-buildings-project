@@ -1,1 +1,0 @@
-The Building_Prediction_Model_Pipeline.ipynb will output images here.
